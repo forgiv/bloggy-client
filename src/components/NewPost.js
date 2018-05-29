@@ -89,6 +89,11 @@ class NewPost extends React.Component {
           onChange={e => this.setState({ content: e.target.value })}
         />
         <input type="submit" value="publish" />
+        <input
+          type="button"
+          value="cancel"
+          onClick={e => this.setState({ success: true })}
+        />
         <div>{this.state.error}</div>
       </form>
     )
