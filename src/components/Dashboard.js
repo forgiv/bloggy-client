@@ -9,6 +9,7 @@ const Dashboard = props => {
       <h2>Dashboard</h2>
       <h3>{props.user.username}</h3>
       <Link to="/dashboard/new">new post</Link>
+      <Link to={`/blog/${props.user.username}`}>view blog</Link>
     </div>
   )
 }

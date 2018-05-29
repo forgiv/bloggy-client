@@ -12,6 +12,7 @@ class Blog extends React.Component {
 
     return (
       <div>
+        <h1>{this.props.match.params.username}</h1>
         {this.props.posts.map(post => {
           return (
             <article>
