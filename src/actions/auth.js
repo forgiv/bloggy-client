@@ -29,8 +29,11 @@ export const getAuthToken = (username, password) => dispatch => {
   })
     .then(res => res.json())
     .then(data => {
-      if (data.authToken) dispatch(authTokenSuccess(data.authToken, username))
-      else dispatch(authTokenError(data))
+      if (data.authToken) {
+        dispatch(authTokenSuccess(data.authToken, username))
+      } else {
+        dispatch(authTokenError(data))
+      }
     })
     .catch(err => dispatch(authTokenError(err)))
 }
@@ -43,6 +46,13 @@ export const refreshAuthToken = authToken => dispatch => {
       authorization: `Bearer ${authToken}`
     }
   })
-    .then(data => dispatch(authTokenSuccess(data.authToken)))
+    .then(res => res.json())
+    .then(data => {
+      if (data.authToken) {
+        dispatch(authTokenSuccess(data.authToken))
+      } else {
+        dispatch(authTokenError(data))
+      }
+    })
     .catch(err => dispatch(authTokenError(err)))
 }
