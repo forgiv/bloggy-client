@@ -64,7 +64,7 @@ class RegisterForm extends React.Component {
         />
         <label htmlFor="blog">blog name</label>
         <input type="text" id="blog" name="blog" ref={e => (this.blog = e)} />
-        <input type="submit" value="Register" />
+        <input type="submit" value="register" />
         <div>{this.state.error ? this.state.error : ''}</div>
       </form>
     )

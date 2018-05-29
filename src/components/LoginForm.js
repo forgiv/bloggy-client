@@ -14,21 +14,21 @@ class LoginForm extends React.Component {
     if (this.props.authToken) return <Redirect to="/dashboard" />
     return (
       <form onSubmit={e => this.submitForm(e)}>
-        <label htmlFor="username" />
+        <label htmlFor="username">username</label>
         <input
           type="text"
           id="username"
           name="username"
           ref={e => (this.username = e)}
         />
-        <label htmlFor="password" />
+        <label htmlFor="password">password</label>
         <input
           type="password"
           id="password"
           name="password"
           ref={e => (this.password = e)}
         />
-        <input type="submit" value="Login" />
+        <input type="submit" value="login" />
       </form>
     )
   }
