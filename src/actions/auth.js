@@ -6,9 +6,10 @@ export const authTokenRequest = () => ({
 })
 
 export const AUTH_TOKEN_SUCCESS = 'AUTH_TOKEN_SUCCESS'
-export const authTokenSuccess = authToken => ({
+export const authTokenSuccess = (authToken, username) => ({
   type: AUTH_TOKEN_SUCCESS,
-  authToken
+  authToken,
+  username
 })
 
 export const AUTH_TOKEN_ERROR = 'AUTH_TOKEN_ERROR'
@@ -26,7 +27,11 @@ export const getAuthToken = (username, password) => dispatch => {
       'Content-Type': 'application/json'
     }
   })
-    .then(data => dispatch(authTokenSuccess(data.authToken)))
+    .then(res => res.json())
+    .then(data => {
+      if (data.authToken) dispatch(authTokenSuccess(data.authToken, username))
+      else dispatch(authTokenError(data))
+    })
     .catch(err => dispatch(authTokenError(err)))
 }
 

@@ -32,4 +32,8 @@ class LoginForm extends React.Component {
   }
 }
 
-export default connect()(LoginForm)
+const mapStateToProps = state => ({
+  error: state.error
+})
+
+export default connect(mapStateToProps)(LoginForm)

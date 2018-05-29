@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import LoginForm from './LoginForm'
 
 const App = props => {
+  if (props.error) {
+    return <div>{props.error.message}</div>
+  }
   if (props.user.username) {
     return (
       <div>
@@ -16,7 +19,8 @@ const App = props => {
 const mapStateToProps = state => ({
   loading: state.loading,
   user: state.user,
-  authToken: state.authToken
+  authToken: state.authToken,
+  error: state.error
 })
 
 export default connect(mapStateToProps)(App)
