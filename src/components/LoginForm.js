@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/LoginForm.css'
 import { connect } from 'react-redux'
 import { getAuthToken } from '../actions/auth'
+import { Redirect } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   submitForm = e => {
@@ -10,6 +11,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    if (this.props.authToken) return <Redirect to="/dashboard" />
     return (
       <form onSubmit={e => this.submitForm(e)}>
         <label htmlFor="username" />
@@ -33,7 +35,8 @@ class LoginForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.error
+  error: state.error,
+  authToken: state.authToken
 })
 
 export default connect(mapStateToProps)(LoginForm)

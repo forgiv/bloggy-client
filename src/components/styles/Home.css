@@ -1,0 +1,22 @@
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+ul li:first-child {
+  margin-left: 0;
+}
+
+ul li:last-child {
+  margin-right: 0;
+}
+
+ul li a {
+  color: blue;
+  text-decoration: none;
+}
