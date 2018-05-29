@@ -35,8 +35,8 @@ class LoginForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.error,
-  authToken: state.authToken
+  error: state.auth.error,
+  authToken: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(LoginForm)

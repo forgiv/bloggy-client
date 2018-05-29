@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { authReducer } from './reducers'
+import { rootReducer } from './reducers'
 
-export default createStore(authReducer, applyMiddleware(thunk))
+export default createStore(rootReducer, applyMiddleware(thunk))

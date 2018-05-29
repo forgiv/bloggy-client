@@ -6,6 +6,7 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import Dashboard from './Dashboard'
 import NewPost from './NewPost'
+import Blog from './Blog'
 
 const App = props => {
   return (
@@ -14,6 +15,7 @@ const App = props => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/register" component={RegisterForm} />
+        <Route exact path="/:username" component={Blog} />
         <Route
           exact
           path="/dashboard"
@@ -34,10 +36,8 @@ const App = props => {
 }
 
 const mapStateToProps = state => ({
-  loading: state.loading,
-  user: state.user,
-  authToken: state.authToken,
-  error: state.error
+  user: state.auth.user,
+  authToken: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(App)

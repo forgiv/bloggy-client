@@ -14,8 +14,7 @@ const Dashboard = props => {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  posts: state.posts
+  user: state.auth.user
 })
 
 export default connect(mapStateToProps)(Dashboard)
