@@ -6,10 +6,10 @@ export const authTokenRequest = () => ({
 })
 
 export const AUTH_TOKEN_SUCCESS = 'AUTH_TOKEN_SUCCESS'
-export const authTokenSuccess = (authToken, username) => ({
+export const authTokenSuccess = (authToken, user) => ({
   type: AUTH_TOKEN_SUCCESS,
   authToken,
-  username
+  user
 })
 
 export const AUTH_TOKEN_ERROR = 'AUTH_TOKEN_ERROR'
@@ -20,6 +20,7 @@ export const authTokenError = error => ({
 
 export const getAuthToken = (username, password) => dispatch => {
   dispatch(authTokenRequest())
+  let authToken
   fetch(`${apiURL}/login`, {
     method: 'POST',
     body: JSON.stringify({ username, password }),
@@ -30,11 +31,18 @@ export const getAuthToken = (username, password) => dispatch => {
     .then(res => res.json())
     .then(data => {
       if (data.authToken) {
-        dispatch(authTokenSuccess(data.authToken, username))
+        authToken = data.authToken
+        return fetch(`${apiURL}/users`, {
+          headers: {
+            authorization: `Bearer ${authToken}`
+          }
+        })
       } else {
         dispatch(authTokenError(data))
       }
     })
+    .then(res => res.json())
+    .then(user => dispatch(authTokenSuccess(authToken, user)))
     .catch(err => dispatch(authTokenError(err)))
 }
 
