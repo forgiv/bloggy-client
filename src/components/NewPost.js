@@ -9,7 +9,11 @@ class NewPost extends React.Component {
     super(props)
     this.state = {
       error: null,
-      success: false
+      success: false,
+      slug: '',
+      title: '',
+      content: '',
+      autoSlug: true
     }
   }
 
@@ -18,8 +22,9 @@ class NewPost extends React.Component {
     fetch(`${apiURL}/posts`, {
       method: 'POST',
       body: JSON.stringify({
-        title: this.title.value,
-        content: this.content.value
+        title: this.state.title,
+        content: this.state.content,
+        slug: this.state.slug
       }),
       headers: {
         'content-type': 'application/json',
@@ -28,10 +33,23 @@ class NewPost extends React.Component {
     })
       .then(
         res =>
-          (res.status = 201) ? this.setState({ success: true }) : res.json()
+          res.status === 201 ? this.setState({ success: true }) : res.json()
       )
-      .then(data => this.setState({ error: data.message }))
-      .catch(err => this.setState({ error: err }))
+      .then(err => this.setState({ error: err.message }))
+      .catch(err => this.setState({ success: false, error: err }))
+  }
+
+  titleToSlug = e => {
+    const title = e.target.value
+    this.setState({ title, slug: title.split(' ').join('-') })
+  }
+
+  toggleAutoSlug = e => {
+    let updateObj = { autoSlug: e.target.checked }
+    if (e.target.checked) {
+      updateObj.slug = this.state.title.split(' ').join('-')
+    }
+    this.setState(updateObj)
   }
 
   render() {
@@ -43,10 +61,33 @@ class NewPost extends React.Component {
           type="text"
           id="title"
           name="title"
-          ref={e => (this.title = e)}
+          value={this.state.title}
+          onChange={e =>
+            this.state.autoSlug
+              ? this.titleToSlug(e)
+              : this.setState({ title: e.target.value })
+          }
+        />
+        <label htmlFor="slug">slug</label>
+        <input
+          type="text"
+          value={this.state.slug}
+          onChange={e => this.setState({ slug: e.target.value })}
+          disabled={this.state.autoSlug}
+        />
+        <label htmlFor="autoSlug">auto slug</label>
+        <input
+          type="checkbox"
+          checked={this.state.autoSlug}
+          onChange={e => this.toggleAutoSlug(e)}
         />
         <label htmlFor="content">content</label>
-        <textarea id="content" name="content" ref={e => (this.content = e)} />
+        <textarea
+          id="content"
+          name="content"
+          value={this.state.content}
+          onChange={e => this.setState({ content: e.target.value })}
+        />
         <input type="submit" value="publish" />
         <div>{this.state.error}</div>
       </form>
