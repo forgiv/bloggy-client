@@ -48,6 +48,7 @@ export const getAuthToken = (username, password) => dispatch => {
 
 export const refreshAuthToken = authToken => dispatch => {
   dispatch(authTokenRequest())
+  let authToken
   fetch(`${apiURL}/refresh`, {
     method: 'POST',
     headers: {
@@ -57,10 +58,17 @@ export const refreshAuthToken = authToken => dispatch => {
     .then(res => res.json())
     .then(data => {
       if (data.authToken) {
-        dispatch(authTokenSuccess(data.authToken))
+        authToken = data.authToken
+        return fetch(`${apiURL}/users`, {
+          headers: {
+            authorization: `Bearer ${authToken}`
+          }
+        })
       } else {
         dispatch(authTokenError(data))
       }
     })
+    .then(res => res.json())
+    .then(user => dispatch(authTokenSuccess(authToken, user)))
     .catch(err => dispatch(authTokenError(err)))
 }
