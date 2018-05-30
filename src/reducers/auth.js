@@ -5,8 +5,7 @@ import {
 } from '../actions/auth'
 
 const initialState = {
-  user: { id: null, username: null, blog: null },
-  authToken: null,
+  authToken: localStorage.getItem('authToken'),
   loading: false,
   error: null
 }
@@ -18,7 +17,6 @@ export const authReducer = (state = initialState, action) => {
     case AUTH_TOKEN_SUCCESS:
       return {
         ...state,
-        user: action.user,
         loading: false,
         authToken: action.authToken
       }

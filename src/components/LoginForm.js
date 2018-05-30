@@ -3,8 +3,18 @@ import './styles/LoginForm.css'
 import { connect } from 'react-redux'
 import { getAuthToken } from '../actions/auth'
 import { Redirect } from 'react-router-dom'
+import { getUserData } from '../actions/user'
 
 class LoginForm extends React.Component {
+  componentWillMount() {
+    if (this.props.authToken) {
+      if (!localStorage.getItem('authToken')) {
+        localStorage.setItem('authToken', this.props.authToken)
+      }
+      this.props.dispatch(getUserData(this.props.authToken))
+    }
+  }
+
   submitForm = e => {
     e.preventDefault()
     this.props.dispatch(getAuthToken(this.username.value, this.password.value))

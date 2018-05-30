@@ -1,4 +1,5 @@
 import { apiURL } from '../config'
+import { getUserData } from './user'
 
 export const AUTH_TOKEN_REQUEST = 'AUTH_TOKEN_REQUEST'
 export const authTokenRequest = () => ({
@@ -32,17 +33,12 @@ export const getAuthToken = (username, password) => dispatch => {
     .then(data => {
       if (data.authToken) {
         authToken = data.authToken
-        return fetch(`${apiURL}/users`, {
-          headers: {
-            authorization: `Bearer ${authToken}`
-          }
-        })
+        dispatch(getUserData(authToken))
+        dispatch(authTokenSuccess(authToken))
       } else {
         dispatch(authTokenError(data))
       }
     })
-    .then(res => res.json())
-    .then(user => dispatch(authTokenSuccess(authToken, user)))
     .catch(err => dispatch(authTokenError(err)))
 }
 
