@@ -4,7 +4,7 @@ import './styles/Home.css'
 
 const Home = () => {
   return (
-    <div>
+    <div className="Home">
       <ul>
         <li>
           <Link to="/login">Login</Link>

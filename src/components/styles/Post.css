@@ -1,9 +1,9 @@
-.Dashboard a {
+.Post a {
   color: blue;
   text-decoration: none;
   margin-right: 1rem;
 }
 
-.Dashboard a:last-of-type {
+.Post a:last-of-type {
   margin-right: 0;
 }

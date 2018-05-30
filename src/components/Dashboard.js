@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
   render() {
     if (this.props.user) {
       return (
-        <div>
+        <div className="Dashboard">
           <h2>Dashboard</h2>
           <h3>{this.props.user.username}</h3>
           <Link to="/dashboard/new">new post</Link>

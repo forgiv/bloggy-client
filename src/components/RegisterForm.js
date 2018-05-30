@@ -40,7 +40,7 @@ class RegisterForm extends React.Component {
   render() {
     if (this.state.success) return <Redirect to="/login" />
     return (
-      <form onSubmit={e => this.submitForm(e)}>
+      <form onSubmit={e => this.submitForm(e)} className="RegisterForm">
         <label htmlFor="username">username</label>
         <input
           type="text"

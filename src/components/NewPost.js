@@ -64,7 +64,7 @@ class NewPost extends React.Component {
             value="close preview"
             onClick={() => this.setState({ preview: false })}
           />
-          <article>
+          <article className="Preview">
             <header>
               <h1>{this.state.title}</h1>
               <h3>{this.props.user.user.username}</h3>
@@ -80,7 +80,7 @@ class NewPost extends React.Component {
       )
     }
     return (
-      <form onSubmit={e => this.submitForm(e)}>
+      <form onSubmit={e => this.submitForm(e)} className="NewPost">
         <label htmlFor="title">title</label>
         <input
           type="text"

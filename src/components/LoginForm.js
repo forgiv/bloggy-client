@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
       return <Redirect to="/dashboard" />
     }
     return (
-      <form onSubmit={e => this.submitForm(e)}>
+      <form onSubmit={e => this.submitForm(e)} className="LoginForm">
         <label htmlFor="username">username</label>
         <input
           type="text"
