@@ -2,6 +2,7 @@
   "name": "bloggy-client",
   "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "marked": "^0.4.0",
     "react": "^16.4.0",
