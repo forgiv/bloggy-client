@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles/NewPost.css'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { newPost, postClear } from '../actions/post'
 
 class NewPost extends React.Component {
@@ -90,7 +90,7 @@ class NewPost extends React.Component {
         <input
           type="button"
           value="cancel"
-          onClick={e => this.setState({ success: true })}
+          onClick={() => this.props.history.push('/dashboard')}
         />
         <div>{this.state.error}</div>
       </form>
@@ -103,4 +103,4 @@ const mapStateToProps = state => ({
   post: state.post
 })
 
-export default connect(mapStateToProps)(NewPost)
+export default withRouter(connect(mapStateToProps)(NewPost))
