@@ -9,7 +9,7 @@ class Logout extends React.Component {
     this.props.dispatch(clearStore())
   }
   render() {
-    return <Redirect to="/home" />
+    return <Redirect to="/" />
   }
 }
 

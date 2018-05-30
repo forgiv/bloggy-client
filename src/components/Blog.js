@@ -32,7 +32,7 @@ class Blog extends React.Component {
 
     return (
       <div>
-        {this.props.user ? (
+        {this.props.authToken ? (
           <Link to="/dashboard">dashboard</Link>
         ) : (
           <Link to="/login">login</Link>
@@ -58,7 +58,7 @@ class Blog extends React.Component {
 const mapStateToProps = state => ({
   posts: state.post.posts,
   error: state.post.error,
-  user: state.user.user
+  authToken: state.auth.authToken
 })
 
 export default connect(mapStateToProps)(Blog)

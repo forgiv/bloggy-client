@@ -10,21 +10,22 @@ import {
 const initialState = {
   posts: [],
   loading: false,
-  error: null
+  error: null,
+  success: false
 }
 
 export const postReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_POSTS_REQUEST:
-      return { ...state, loading: true, error: null }
+      return { posts: [], loading: true, error: null, success: false }
     case GET_POSTS_SUCCESS:
-      return { ...state, loading: false, posts: action.posts }
+      return { ...state, loading: false, posts: action.posts, success: true }
     case GET_POSTS_ERROR:
       return { ...state, loading: false, error: action.error }
     case NEW_POST_REQUEST:
-      return { ...state, loading: true, error: null }
+      return { ...state, loading: true, error: null, success: false }
     case NEW_POST_SUCCESS:
-      return { ...state, loading: false }
+      return { ...state, loading: false, success: true }
     case NEW_POST_ERROR:
       return { ...state, loading: false, error: action.error }
     default:
