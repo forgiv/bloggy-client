@@ -33,6 +33,11 @@ export const newPostError = error => ({
   error
 })
 
+export const POST_CLEAR = 'POST_CLEAR'
+export const postClear = () => ({
+  type: POST_CLEAR
+})
+
 export const getPosts = username => dispatch => {
   dispatch(getPostsRequest())
   fetch(`${apiURL}/users/${username}/posts`)
