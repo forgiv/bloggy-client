@@ -9,34 +9,42 @@ import NewPost from './NewPost'
 import Blog from './Blog'
 import Logout from './Logout'
 import Post from './Post'
+import { getUserData } from '../actions/user'
 
-const App = props => {
-  return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/register" component={RegisterForm} />
-        <Route exact path="/blog/:username" component={Blog} />
-        <Route exact path="/blog/:username/:slug" component={Post} />
-        <Route
-          exact
-          path="/dashboard"
-          render={() =>
-            props.authToken ? <Dashboard /> : <Redirect to="/login" />
-          }
-        />
-        <Route
-          exact
-          path="/dashboard/new"
-          render={() =>
-            props.authToken ? <NewPost /> : <Redirect to="/login" />
-          }
-        />
-        <Route exact path="/logout" component={Logout} />
-      </div>
-    </Router>
-  )
+class App extends React.Component {
+  componentWillMount() {
+    if (this.props.authToken)
+      this.props.dispatch(getUserData(this.props.authToken))
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/register" component={RegisterForm} />
+          <Route exact path="/blog/:username" component={Blog} />
+          <Route exact path="/blog/:username/:slug" component={Post} />
+          <Route
+            exact
+            path="/dashboard"
+            render={() =>
+              this.props.authToken ? <Dashboard /> : <Redirect to="/login" />
+            }
+          />
+          <Route
+            exact
+            path="/dashboard/new"
+            render={() =>
+              this.props.authToken ? <NewPost /> : <Redirect to="/login" />
+            }
+          />
+          <Route exact path="/logout" component={Logout} />
+        </div>
+      </Router>
+    )
+  }
 }
 
 const mapStateToProps = state => ({

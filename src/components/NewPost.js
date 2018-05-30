@@ -3,6 +3,7 @@ import './styles/NewPost.css'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 import { newPost } from '../actions/post'
+import * as marked from 'marked'
 
 class NewPost extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class NewPost extends React.Component {
       slug: '',
       title: '',
       content: '',
-      autoSlug: true
+      autoSlug: true,
+      preview: false
     }
   }
 
@@ -31,21 +33,51 @@ class NewPost extends React.Component {
 
   titleToSlug = e => {
     const title = e.target.value
-    this.setState({ title, slug: title.split(' ').join('-') })
+    this.setState({
+      title,
+      slug: title
+        .toLowerCase()
+        .split(' ')
+        .join('-')
+    })
   }
 
   toggleAutoSlug = e => {
     let updateObj = { autoSlug: e.target.checked }
     if (e.target.checked) {
-      updateObj.slug = this.state.title.split(' ').join('-')
+      updateObj.slug = this.state.title
+        .toLowerCase()
+        .split(' ')
+        .join('-')
     }
     this.setState(updateObj)
   }
 
   render() {
     if (this.props.post.success) {
-      console.log(this.props.post.success)
       return <Redirect to="/dashboard" />
+    } else if (this.state.preview && !this.props.user.loading) {
+      return (
+        <div>
+          <input
+            type="button"
+            value="close preview"
+            onClick={() => this.setState({ preview: false })}
+          />
+          <article>
+            <header>
+              <h1>{this.state.title}</h1>
+              <h3>{this.props.user.user.username}</h3>
+            </header>
+            <div
+              dangerouslySetInnerHTML={{ __html: marked(this.state.content) }}
+            />
+            <footer>
+              <small>{new Date().toDateString()}</small>
+            </footer>
+          </article>
+        </div>
+      )
     }
     return (
       <form onSubmit={e => this.submitForm(e)}>
@@ -84,6 +116,11 @@ class NewPost extends React.Component {
         <input type="submit" value="publish" />
         <input
           type="button"
+          value="preview"
+          onClick={() => this.setState({ preview: true })}
+        />
+        <input
+          type="button"
           value="cancel"
           onClick={() => this.props.history.push('/dashboard')}
         />
@@ -95,7 +132,8 @@ class NewPost extends React.Component {
 
 const mapStateToProps = state => ({
   authToken: state.auth.authToken,
-  post: state.post
+  post: state.post,
+  user: state.user
 })
 
 export default withRouter(connect(mapStateToProps)(NewPost))
