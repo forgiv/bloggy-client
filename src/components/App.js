@@ -8,6 +8,7 @@ import Dashboard from './Dashboard'
 import NewPost from './NewPost'
 import Blog from './Blog'
 import Logout from './Logout'
+import Post from './Post'
 
 const App = props => {
   return (
@@ -17,6 +18,7 @@ const App = props => {
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/register" component={RegisterForm} />
         <Route exact path="/blog/:username" component={Blog} />
+        <Route exact path="/blog/:username/:slug" component={Post} />
         <Route
           exact
           path="/dashboard"

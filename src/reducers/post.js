@@ -5,7 +5,10 @@ import {
   NEW_POST_REQUEST,
   NEW_POST_SUCCESS,
   NEW_POST_ERROR,
-  POST_CLEAR
+  POST_CLEAR,
+  GET_POST_REQUEST,
+  GET_POST_SUCCESS,
+  GET_POST_ERROR
 } from '../actions/post'
 
 const initialState = {
@@ -28,6 +31,12 @@ export const postReducer = (state = initialState, action) => {
     case NEW_POST_SUCCESS:
       return { ...state, loading: false, success: true }
     case NEW_POST_ERROR:
+      return { ...state, loading: false, error: action.error }
+    case GET_POST_REQUEST:
+      return { ...state, loading: true, error: null, success: false }
+    case GET_POST_SUCCESS:
+      return { ...state, posts: [action.post], loading: false, success: true }
+    case GET_POST_ERROR:
       return { ...state, loading: false, error: action.error }
     case POST_CLEAR:
       return { ...state, success: false }

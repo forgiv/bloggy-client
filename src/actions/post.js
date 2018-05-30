@@ -33,6 +33,23 @@ export const newPostError = error => ({
   error
 })
 
+export const GET_POST_REQUEST = 'GET_POST_REQUEST'
+export const getPostRequest = () => ({
+  type: GET_POST_REQUEST
+})
+
+export const GET_POST_SUCCESS = 'GET_POST'
+export const getPostSuccess = post => ({
+  type: GET_POST_SUCCESS,
+  post
+})
+
+export const GET_POST_ERROR = 'GET_POST_ERROR'
+export const getPostError = error => ({
+  type: GET_POST_ERROR,
+  error
+})
+
 export const POST_CLEAR = 'POST_CLEAR'
 export const postClear = () => ({
   type: POST_CLEAR
@@ -68,4 +85,18 @@ export const newPost = (postData, authToken) => dispatch => {
     })
     .then(err => dispatch(newPostError(err)))
     .catch(err => dispatch(newPostError(err)))
+}
+
+export const getPost = (username, slug) => dispatch => {
+  dispatch(getPostRequest())
+  fetch(`${apiURL}/users/${username}/${slug}`)
+    .then(res => {
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        dispatch(getPostError(res.statusText))
+      }
+    })
+    .then(post => dispatch(getPostSuccess(post)))
+    .catch(err => dispatch(getPostError(err)))
 }

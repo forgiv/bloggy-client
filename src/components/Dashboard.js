@@ -3,8 +3,13 @@ import './styles/Dashboard.css'
 import { connect } from 'react-redux'
 import Link from 'react-router-dom/Link'
 import Redirect from 'react-router-dom/Redirect'
+import { postClear } from '../actions/post'
 
 class Dashboard extends React.Component {
+  componentWillMount() {
+    this.props.dispatch(postClear())
+  }
+
   render() {
     if (this.props.user) {
       return (

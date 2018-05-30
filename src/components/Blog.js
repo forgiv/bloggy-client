@@ -47,7 +47,13 @@ class Blog extends React.Component {
         {this.props.posts.map(post => {
           return (
             <article key={post.title}>
-              <header>{post.title}</header>
+              <header>
+                <Link
+                  to={`/blog/${this.props.match.params.username}/${post.slug}`}
+                >
+                  {post.title}
+                </Link>
+              </header>
               {post.content}
               <footer>
                 <small>{post.createdBy}</small>

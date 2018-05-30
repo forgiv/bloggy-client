@@ -2,7 +2,7 @@ import React from 'react'
 import './styles/NewPost.css'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
-import { newPost, postClear } from '../actions/post'
+import { newPost } from '../actions/post'
 
 class NewPost extends React.Component {
   constructor(props) {
@@ -42,14 +42,9 @@ class NewPost extends React.Component {
     this.setState(updateObj)
   }
 
-  componentWillMount() {
-    if (this.props.post.success) {
-      this.props.dispatch(postClear())
-    }
-  }
-
   render() {
     if (this.props.post.success) {
+      console.log(this.props.post.success)
       return <Redirect to="/dashboard" />
     }
     return (
