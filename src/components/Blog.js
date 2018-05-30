@@ -2,6 +2,7 @@ import React from 'react'
 import connect from 'react-redux/lib/connect/connect'
 import { getPosts } from '../actions/post'
 import { apiURL } from '../config'
+import { Link } from 'react-router-dom'
 
 class Blog extends React.Component {
   constructor(props) {
@@ -31,6 +32,11 @@ class Blog extends React.Component {
 
     return (
       <div>
+        {this.props.user ? (
+          <Link to="/dashboard">dashboard</Link>
+        ) : (
+          <Link to="/login">login</Link>
+        )}
         <h1>{this.state.blog}</h1>
         <h3>{this.props.match.params.username}</h3>
         {this.props.posts.map(post => {
@@ -51,7 +57,8 @@ class Blog extends React.Component {
 
 const mapStateToProps = state => ({
   posts: state.post.posts,
-  error: state.post.error
+  error: state.post.error,
+  user: state.user.user
 })
 
 export default connect(mapStateToProps)(Blog)

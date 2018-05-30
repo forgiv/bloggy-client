@@ -21,7 +21,10 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.authToken) return <Redirect to="/dashboard" />
+    if (this.props.authToken && this.props.user) {
+      localStorage.setItem('authToken', this.props.authToken)
+      return <Redirect to="/dashboard" />
+    }
     return (
       <form onSubmit={e => this.submitForm(e)}>
         <label htmlFor="username">username</label>
@@ -46,7 +49,8 @@ class LoginForm extends React.Component {
 
 const mapStateToProps = state => ({
   error: state.auth.error,
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  user: state.user.user
 })
 
 export default connect(mapStateToProps)(LoginForm)

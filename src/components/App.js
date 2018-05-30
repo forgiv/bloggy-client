@@ -7,6 +7,7 @@ import RegisterForm from './RegisterForm'
 import Dashboard from './Dashboard'
 import NewPost from './NewPost'
 import Blog from './Blog'
+import Logout from './Logout'
 
 const App = props => {
   return (
@@ -30,6 +31,7 @@ const App = props => {
             props.authToken ? <NewPost /> : <Redirect to="/login" />
           }
         />
+        <Route exact path="/logout" component={Logout} />
       </div>
     </Router>
   )
