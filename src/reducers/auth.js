@@ -5,7 +5,7 @@ import {
 } from '../actions/auth'
 
 const initialState = {
-  authToken: localStorage.getItem('authToken'),
+  authToken: localStorage.getItem('authToken') || null,
   loading: false,
   error: null
 }
