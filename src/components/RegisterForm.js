@@ -15,26 +15,30 @@ class RegisterForm extends React.Component {
 
   submitForm = e => {
     e.preventDefault()
-    fetch(`${apiURL}/users`, {
-      method: 'POST',
-      body: JSON.stringify({
-        username: this.username.value,
-        password: this.password.value,
-        blog: this.blog.value
-      }),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.id) {
-          this.setState({ success: true })
-        } else {
-          this.setState({ error: data.message })
+    if (this.password.value === this.confirm.value) {
+      fetch(`${apiURL}/users`, {
+        method: 'POST',
+        body: JSON.stringify({
+          username: this.username.value,
+          password: this.password.value,
+          blog: this.blog.value
+        }),
+        headers: {
+          'content-type': 'application/json'
         }
       })
-      .catch(err => this.setState({ error: err.message }))
+        .then(res => res.json())
+        .then(data => {
+          if (data.id) {
+            this.setState({ success: true })
+          } else {
+            this.setState({ error: data.message })
+          }
+        })
+        .catch(err => this.setState({ error: err.message }))
+    } else {
+      this.setState({ error: 'password and confirm do not match' })
+    }
   }
 
   render() {
