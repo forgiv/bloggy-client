@@ -4,6 +4,7 @@ import { getPosts } from '../actions/post'
 import { apiURL } from '../config'
 import { Link } from 'react-router-dom'
 import './styles/Blog.css'
+import * as removeMarkdown from 'remove-markdown'
 
 class Blog extends React.Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class Blog extends React.Component {
                   {post.title}
                 </Link>
               </header>
-              {post.content}
+              {removeMarkdown(post.content).slice(0, 32)}...
               <footer>
                 <small>{post.createdBy}</small>
               </footer>

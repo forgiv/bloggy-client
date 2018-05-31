@@ -15,8 +15,3 @@
 .Home ul li:last-of-type {
   margin-right: 0;
 }
-
-.Home ul li a {
-  color: blue;
-  text-decoration: none;
-}
