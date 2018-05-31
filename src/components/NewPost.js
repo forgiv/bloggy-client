@@ -113,17 +113,19 @@ class NewPost extends React.Component {
           value={this.state.content}
           onChange={e => this.setState({ content: e.target.value })}
         />
-        <input type="submit" value="publish" />
-        <input
-          type="button"
-          value="preview"
-          onClick={() => this.setState({ preview: true })}
-        />
-        <input
-          type="button"
-          value="cancel"
-          onClick={() => this.props.history.push('/dashboard')}
-        />
+        <div>
+          <input type="submit" value="publish" />
+          <input
+            type="button"
+            value="preview"
+            onClick={() => this.setState({ preview: true })}
+          />
+          <input
+            type="button"
+            value="cancel"
+            onClick={() => this.props.history.push('/dashboard')}
+          />
+        </div>
         <div>{this.state.error}</div>
       </form>
     )
