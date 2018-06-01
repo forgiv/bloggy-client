@@ -3,11 +3,13 @@ import { authReducer } from './auth'
 import { postReducer } from './post'
 import { userReducer } from './user'
 import { CLEAR_STORE } from '../actions/root'
+import { reducer as formReducer } from 'redux-form'
 
 const appReducer = combineReducers({
   auth: authReducer,
   post: postReducer,
-  user: userReducer
+  user: userReducer,
+  form: formReducer
 })
 
 export const rootReducer = (state, action) => {
