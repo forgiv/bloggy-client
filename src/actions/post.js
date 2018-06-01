@@ -38,7 +38,7 @@ export const getPostRequest = () => ({
   type: GET_POST_REQUEST
 })
 
-export const GET_POST_SUCCESS = 'GET_POST'
+export const GET_POST_SUCCESS = 'GET_POST_SUCCESS'
 export const getPostSuccess = post => ({
   type: GET_POST_SUCCESS,
   post

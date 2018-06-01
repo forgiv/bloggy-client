@@ -4,11 +4,13 @@ import { postReducer } from './post'
 import { userReducer } from './user'
 import { CLEAR_STORE } from '../actions/root'
 import { reducer as formReducer } from 'redux-form'
+import commentReducer from './comment'
 
 const appReducer = combineReducers({
   auth: authReducer,
   post: postReducer,
   user: userReducer,
+  comment: commentReducer,
   form: formReducer
 })
 

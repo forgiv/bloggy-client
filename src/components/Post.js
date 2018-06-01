@@ -5,12 +5,15 @@ import { getPost } from '../actions/post'
 import { Link } from 'react-router-dom'
 import './styles/Post.css'
 import * as marked from 'marked'
+import { getComments } from '../actions/comment'
+import Comment from './Comment'
+import NewComment from './NewComment'
 
 class Post extends React.Component {
   componentWillMount() {
-    this.props.dispatch(
-      getPost(this.props.match.params.username, this.props.match.params.slug)
-    )
+    const { username, slug } = this.props.match.params
+    this.props.dispatch(getPost(username, slug))
+    this.props.dispatch(getComments(username, slug))
   }
 
   render() {
@@ -39,6 +42,22 @@ class Post extends React.Component {
               <small>{this.props.post.createdAt}</small>
             </footer>
           </article>
+          <div>
+            <NewComment
+              {...{
+                username: this.props.match.params.username,
+                slug: this.props.match.params.slug
+              }}
+            />
+            {this.props.comments.map(c => (
+              <Comment
+                username={c.userId.username}
+                content={c.content}
+                createdAt={c.createdAt}
+                key={c.id}
+              />
+            ))}
+          </div>
         </div>
       )
     }
@@ -48,7 +67,8 @@ class Post extends React.Component {
 
 const mapStateToProps = state => ({
   post: state.post.posts[0],
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  comments: state.comment.comments
 })
 
 export default withRouter(connect(mapStateToProps)(Post))
