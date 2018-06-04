@@ -14,8 +14,8 @@ class Dashboard extends React.Component {
     if (this.props.user) {
       return (
         <div className="Dashboard">
-          <h2>Dashboard</h2>
-          <h3>{this.props.user.username}</h3>
+          <h1>Dashboard</h1>
+          <h2>{this.props.user.username}</h2>
         </div>
       )
     }

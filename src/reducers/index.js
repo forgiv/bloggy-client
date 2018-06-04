@@ -5,6 +5,7 @@ import { userReducer } from './user'
 import { CLEAR_STORE } from '../actions/root'
 import { reducer as formReducer } from 'redux-form'
 import commentReducer from './comment'
+import setAuthToken from '../actions/auth'
 
 const appReducer = combineReducers({
   auth: authReducer,

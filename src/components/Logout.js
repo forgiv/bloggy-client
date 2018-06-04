@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 class Logout extends React.Component {
   componentWillMount() {
-    localStorage.clear()
+    localStorage.removeItem('authToken')
     this.props.dispatch(clearStore())
   }
   render() {
