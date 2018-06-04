@@ -1,22 +1,59 @@
-.NewPost label,
-.NewPost input {
-  display: block;
+.NewPost {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.NewPost div input {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+.NewPost label {
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
-.NewPost div input:first-of-type {
-  margin-bottom: 0;
+.NewPost label:first-of-type {
+  margin-top: 0;
 }
 
-.NewPost div input:last-of-type {
-  margin-bottom: 0;
+.NewPost input[type='text'] {
+  font-size: 1.5rem;
+}
+
+.NewPost input[type='text'],
+.NewPost input[type='button'],
+.NewPost input[type='submit'] {
+  min-height: 4rem;
+  text-align: center;
+}
+
+.NewPost input[type='button'],
+.NewPost input[type='submit'] {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.NewPost .checkbox {
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
 .NewPost textarea {
-  width: 25%;
-  height: 50vh;
+  font-size: 1.5rem;
+  min-height: 300px;
+}
+
+.NewPost input[type='button']:focus,
+.NewPost input[type='button']:hover,
+.NewPost input[type='submit']:focus,
+.NewPost input[type='submit']:hover {
+  color: #ddd;
+  background: #333;
+}
+
+.NewPost.Preview {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.NewPost.Preview input {
+  min-height: 3rem;
 }

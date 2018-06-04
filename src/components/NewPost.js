@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
 import { newPost } from '../actions/post'
 import * as marked from 'marked'
+import * as FontAwesome from 'react-fontawesome'
 
 class NewPost extends React.Component {
   constructor(props) {
@@ -43,8 +44,8 @@ class NewPost extends React.Component {
   }
 
   toggleAutoSlug = e => {
-    let updateObj = { autoSlug: e.target.checked }
-    if (e.target.checked) {
+    let updateObj = { autoSlug: !this.state.autoSlug }
+    if (updateObj.autoSlug) {
       updateObj.slug = this.state.title
         .toLowerCase()
         .split(' ')
@@ -58,7 +59,7 @@ class NewPost extends React.Component {
       return <Redirect to="/dashboard" />
     } else if (this.state.preview && !this.props.user.loading) {
       return (
-        <div>
+        <div className="NewPost Preview">
           <input
             type="button"
             value="close preview"
@@ -81,7 +82,7 @@ class NewPost extends React.Component {
     }
     return (
       <form onSubmit={e => this.submitForm(e)} className="NewPost">
-        <label htmlFor="title">title</label>
+        <label htmlFor="title">Title</label>
         <input
           type="text"
           id="title"
@@ -93,39 +94,47 @@ class NewPost extends React.Component {
               : this.setState({ title: e.target.value })
           }
         />
-        <label htmlFor="slug">slug</label>
+        <label htmlFor="slug">Slug</label>
         <input
           type="text"
           value={this.state.slug}
           onChange={e => this.setState({ slug: e.target.value })}
           disabled={this.state.autoSlug}
         />
-        <label htmlFor="autoSlug">auto slug</label>
-        <input
-          type="checkbox"
-          checked={this.state.autoSlug}
-          onChange={e => this.toggleAutoSlug(e)}
-        />
-        <label htmlFor="content">content</label>
+        <div className="checkbox">
+          Auto Slug<br />
+          {this.state.autoSlug ? (
+            <FontAwesome
+              name="fas fa-check-square"
+              size="2x"
+              onClick={() => this.toggleAutoSlug()}
+            />
+          ) : (
+            <FontAwesome
+              name="fas fa-square"
+              size="2x"
+              onClick={() => this.toggleAutoSlug()}
+            />
+          )}
+        </div>
+        <label htmlFor="content">Content</label>
         <textarea
           id="content"
           name="content"
           value={this.state.content}
           onChange={e => this.setState({ content: e.target.value })}
         />
-        <div>
-          <input type="submit" value="publish" />
-          <input
-            type="button"
-            value="preview"
-            onClick={() => this.setState({ preview: true })}
-          />
-          <input
-            type="button"
-            value="cancel"
-            onClick={() => this.props.history.push('/dashboard')}
-          />
-        </div>
+        <input type="submit" value="Publish" />
+        <input
+          type="button"
+          value="Preview"
+          onClick={() => this.setState({ preview: true })}
+        />
+        <input
+          type="button"
+          value="Cancel"
+          onClick={() => this.props.history.push('/dashboard')}
+        />
         <div>{this.state.error}</div>
       </form>
     )

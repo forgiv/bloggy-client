@@ -25,8 +25,8 @@ class Post extends React.Component {
           </Link>
           <article>
             <header>
-              <h1>{this.props.post.title}</h1>
-              <h3>{this.props.match.params.username}</h3>
+              <h1 className="title">{this.props.post.title}</h1>
+              <h2 className="sub-title">{this.props.match.params.username}</h2>
             </header>
             <div
               dangerouslySetInnerHTML={{

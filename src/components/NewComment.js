@@ -2,6 +2,7 @@ import React from 'react'
 import { apiURL } from '../config'
 import connect from 'react-redux/lib/connect/connect'
 import { getComments } from '../actions/comment'
+import './styles/NewComment.css'
 
 class NewComment extends React.Component {
   constructor(props) {
@@ -43,11 +44,9 @@ class NewComment extends React.Component {
         err = <span>{this.state.error}</span>
       }
       return (
-        <form onSubmit={e => this.submitComment(e)}>
+        <form onSubmit={e => this.submitComment(e)} className="NewComment">
           {err}
-          <br />
-          <label htmlFor="content">comment:</label>
-          <br />
+          <label htmlFor="content">Comment:</label>
           <textarea
             id="content"
             name="content"
