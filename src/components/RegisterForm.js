@@ -68,13 +68,14 @@ class RegisterForm extends React.Component {
         onSubmit={this.props.handleSubmit(this.submitForm)}
         className="RegisterForm"
       >
+        <h1>Register New User</h1>
         {errorMessage}
         <Field
           component={Input}
           type="text"
           id="username"
           name="username"
-          label="username"
+          label="Username"
           validate={[required, nonEmpty]}
         />
         <Field
@@ -82,7 +83,7 @@ class RegisterForm extends React.Component {
           type="password"
           id="password"
           name="password"
-          label="password"
+          label="Password"
           validate={[required, nonEmpty]}
         />
         <Field
@@ -90,7 +91,7 @@ class RegisterForm extends React.Component {
           type="password"
           id="confirm"
           name="confirm"
-          label="confirm"
+          label="Confirm"
           validate={[required, nonEmpty]}
         />
         <Field
@@ -98,12 +99,12 @@ class RegisterForm extends React.Component {
           type="text"
           id="blog"
           name="blog"
-          label="blog name"
+          label="Blog Name"
           validate={[required, nonEmpty]}
         />
         <input
           type="submit"
-          value="register"
+          value="Register"
           disabled={this.props.pristine || this.props.submitting}
         />
       </form>

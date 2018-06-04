@@ -27,21 +27,25 @@ class LoginForm extends React.Component {
     }
     return (
       <form onSubmit={e => this.submitForm(e)} className="LoginForm">
-        <label htmlFor="username">username</label>
+        <h1>User Login</h1>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
           name="username"
           ref={e => (this.username = e)}
         />
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
           name="password"
           ref={e => (this.password = e)}
         />
-        <input type="submit" value="login" />
+        <input type="submit" value="Login" onClick={e => e.target.blur()} />
+        <div className="message error">
+          {this.props.error ? this.props.error.message : ''}
+        </div>
       </form>
     )
   }

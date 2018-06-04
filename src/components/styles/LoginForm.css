@@ -1,4 +1,36 @@
-.LoginForm label,
-input {
-  display: block;
+.LoginForm {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.LoginForm input {
+  min-height: 4rem;
+  text-align: center;
+}
+
+.LoginForm input[type='text'],
+.LoginForm input[type='password'] {
+  font-size: 1.5rem;
+}
+
+.LoginForm label {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.LoginForm label:first-of-type {
+  margin-top: 0;
+}
+
+.LoginForm input:last-of-type {
+  margin-top: 2.5rem;
+  font-size: 1.25rem;
+}
+
+.LoginForm input[type='submit']:focus,
+.LoginForm input[type='submit']:hover {
+  color: #ddd;
+  background: #333;
 }

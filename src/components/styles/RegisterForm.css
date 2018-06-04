@@ -1,4 +1,36 @@
-.RegisterForm label,
-input {
-  display: block;
+.RegisterForm {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.RegisterForm .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.RegisterForm .form-input:first-of-type {
+  margin-top: 0;
+}
+
+.RegisterForm label {
+  font-size: 1.5rem;
+}
+
+.RegisterForm input {
+  text-align: center;
+  min-height: 4rem;
+  font-size: 1.5rem;
+}
+
+.RegisterForm > input:last-of-type {
+  margin-top: 2.5rem;
+}
+
+.RegisterForm input[type='submit']:focus,
+.RegisterForm input[type='submit']:hover {
+  color: #ddd;
+  background: #333;
 }
