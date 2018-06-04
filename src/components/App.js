@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <main className="App">
           <Route path="/" component={NavBar} />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={LoginForm} />
@@ -43,7 +43,7 @@ class App extends React.Component {
             }
           />
           <Route exact path="/logout" component={Logout} />
-        </div>
+        </main>
       </Router>
     )
   }
