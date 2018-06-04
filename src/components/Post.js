@@ -20,11 +20,6 @@ class Post extends React.Component {
     if (this.props.post) {
       return (
         <div className="Post">
-          {this.props.authToken ? (
-            <Link to="/dashboard">dashboard</Link>
-          ) : (
-            <Link to="/login">login</Link>
-          )}
           <Link to={`/blog/${this.props.match.params.username}`}>
             back to blog
           </Link>

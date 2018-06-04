@@ -16,9 +16,6 @@ class Dashboard extends React.Component {
         <div className="Dashboard">
           <h2>Dashboard</h2>
           <h3>{this.props.user.username}</h3>
-          <Link to="/dashboard/new">new post</Link>
-          <Link to={`/blog/${this.props.user.username}`}>view blog</Link>
-          <Link to="/logout">logout</Link>
         </div>
       )
     }

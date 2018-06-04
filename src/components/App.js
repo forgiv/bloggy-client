@@ -10,6 +10,7 @@ import Blog from './Blog'
 import Logout from './Logout'
 import Post from './Post'
 import { getUserData } from '../actions/user'
+import NavBar from './NavBar'
 
 class App extends React.Component {
   componentWillMount() {
@@ -21,6 +22,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <Route path="/" component={NavBar} />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={RegisterForm} />

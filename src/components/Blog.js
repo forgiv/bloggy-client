@@ -34,13 +34,6 @@ class Blog extends React.Component {
 
     return (
       <section className="Blog">
-        <div>
-          {this.props.authToken ? (
-            <Link to="/dashboard">dashboard</Link>
-          ) : (
-            <Link to="/login">login</Link>
-          )}
-        </div>
         <header>
           <h1>{this.state.blog}</h1>
           <h3>{this.props.match.params.username}</h3>
