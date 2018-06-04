@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/Dashboard.css'
 import { connect } from 'react-redux'
-import Link from 'react-router-dom/Link'
 import Redirect from 'react-router-dom/Redirect'
 import { postClear } from '../actions/post'
 
