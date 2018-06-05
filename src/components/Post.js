@@ -8,6 +8,7 @@ import * as marked from 'marked'
 import { getComments } from '../actions/comment'
 import Comment from './Comment'
 import NewComment from './NewComment'
+import * as FontAwesome from 'react-fontawesome'
 
 class Post extends React.Component {
   componentWillMount() {
@@ -20,9 +21,16 @@ class Post extends React.Component {
     if (this.props.post) {
       return (
         <div className="Post-Container">
-          <Link to={`/blog/${this.props.match.params.username}`}>
-            &lt;- back to blog
-          </Link>
+          <button
+            onClick={() =>
+              this.props.history.push(
+                `/blog/${this.props.match.params.username}`
+              )
+            }
+            className="btn-return"
+          >
+            <FontAwesome name="fas fa-backward" /> back to blog
+          </button>
           <article className="Post">
             <header>
               <h1 className="title">{this.props.post.title}</h1>

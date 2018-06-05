@@ -8,14 +8,16 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.Post-Container a {
-  font-size: 1.15rem;
-}
-
 .Post div {
   font-size: 1.15rem;
 }
 
 .Post footer small {
   font-size: 1rem;
+}
+
+.Post-Container .btn-return {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
