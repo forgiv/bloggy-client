@@ -11,7 +11,8 @@ class LoginForm extends React.Component {
       if (!localStorage.getItem('authToken')) {
         localStorage.setItem('authToken', this.props.authToken)
       }
-      this.props.dispatch(getUserData(this.props.authToken))
+      if (!this.props.user)
+        this.props.dispatch(getUserData(this.props.authToken))
     }
   }
 

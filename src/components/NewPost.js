@@ -55,9 +55,8 @@ class NewPost extends React.Component {
   }
 
   render() {
-    if (this.props.post.success) {
-      return <Redirect to="/dashboard" />
-    } else if (this.state.preview && !this.props.user.loading) {
+    if (this.props.post.postSuccess) return <Redirect to="/dashboard" />
+    if (this.state.preview && !this.props.user.loading) {
       return (
         <div className="NewPost Preview">
           <input
@@ -82,6 +81,7 @@ class NewPost extends React.Component {
     }
     return (
       <form onSubmit={e => this.submitForm(e)} className="NewPost">
+        <h1>New Post</h1>
         <label htmlFor="title">Title</label>
         <input
           type="text"

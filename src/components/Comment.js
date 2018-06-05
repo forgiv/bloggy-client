@@ -1,11 +1,14 @@
 import React from 'react'
+import { withRouter, Link } from 'react-router-dom'
 import './styles/Comment.css'
 
 const Comment = props => {
   return (
     <article className="Comment">
       <header>
-        <strong>{props.username}</strong>
+        <strong>
+          <Link to={`/blog/${props.username}`}>{props.username}</Link>
+        </strong>
       </header>
       {props.content}
       <footer>
@@ -15,4 +18,4 @@ const Comment = props => {
   )
 }
 
-export default Comment
+export default withRouter(Comment)

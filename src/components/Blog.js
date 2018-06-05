@@ -35,8 +35,8 @@ class Blog extends React.Component {
     return (
       <section className="Blog">
         <header>
-          <h1>{this.state.blog}</h1>
-          <h3>{this.props.match.params.username}</h3>
+          <h1 className="title">{this.state.blog}</h1>
+          <h2 className="sub-title">{this.props.match.params.username}</h2>
         </header>
         {this.props.posts.map(post => {
           return (

@@ -1,15 +1,21 @@
-.Post {
-  font-size: 1.5rem;
-  padding: 0 1rem;
+.Post .title {
+  font-size: 2rem;
 }
 
 .Post .sub-title {
   font-size: 1.25rem;
-  margin-top: -2.25rem;
+  margin-top: -2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.Post a {
-  color: #333;
+.Post-Container a {
+  font-size: 1.15rem;
+}
+
+.Post div {
+  font-size: 1.15rem;
+}
+
+.Post footer small {
   font-size: 1rem;
 }

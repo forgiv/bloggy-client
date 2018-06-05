@@ -11,6 +11,7 @@ import Logout from './Logout'
 import Post from './Post'
 import { getUserData } from '../actions/user'
 import NavBar from './NavBar'
+import './styles/App.css'
 
 class App extends React.Component {
   componentWillMount() {

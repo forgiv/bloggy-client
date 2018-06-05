@@ -19,11 +19,11 @@ class Post extends React.Component {
   render() {
     if (this.props.post) {
       return (
-        <div className="Post">
+        <div className="Post-Container">
           <Link to={`/blog/${this.props.match.params.username}`}>
-            back to blog
+            &lt;- back to blog
           </Link>
-          <article>
+          <article className="Post">
             <header>
               <h1 className="title">{this.props.post.title}</h1>
               <h2 className="sub-title">{this.props.match.params.username}</h2>
