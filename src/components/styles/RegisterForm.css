@@ -33,3 +33,16 @@
   color: #ddd;
   background: #333;
 }
+
+@media (min-width: 1280px) {
+  .RegisterForm input {
+    min-height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .RegisterForm {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

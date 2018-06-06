@@ -46,3 +46,21 @@
   background-color: #ddd;
   color: #333;
 }
+
+@media (min-width: 1280px) {
+  .NavBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: auto;
+  }
+
+  .NavBar ul {
+    flex-direction: column;
+  }
+
+  .NavBar a {
+    padding: 1rem;
+  }
+}

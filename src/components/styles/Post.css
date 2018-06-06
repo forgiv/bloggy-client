@@ -21,3 +21,36 @@
   font-size: 1.5rem;
   margin-top: 1rem;
 }
+
+@media (min-width: 1280px) {
+  .Post header {
+    position: relative;
+  }
+
+  .Post .title {
+    margin-right: 1rem;
+    font-size: 3rem;
+  }
+
+  .Post .sub-title {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+  }
+
+  .Post .title,
+  .Post .sub-title {
+    display: inline-block;
+    border: none;
+    margin-bottom: 0;
+  }
+
+  .Post header {
+    border-bottom: 1px solid #333;
+  }
+
+  .Post-Container textarea,
+  .Post-Container input {
+    max-width: 50%;
+  }
+}

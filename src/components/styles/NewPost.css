@@ -35,6 +35,10 @@
   margin-top: 1rem;
 }
 
+.NewPost .checkbox label {
+  display: block;
+}
+
 .NewPost textarea {
   font-size: 1.5rem;
   min-height: 300px;
@@ -48,11 +52,57 @@
   background: #333;
 }
 
-.NewPost.Preview {
+.Preview {
   text-align: left;
   font-size: 1.5rem;
 }
 
-.NewPost.Preview input {
+.Preview input {
   min-height: 3rem;
+}
+
+@media (min-width: 1280px) {
+  .NewPost {
+    max-width: 900px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+
+  .NewPost input,
+  .NewPost textarea {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .NewPost .checkbox label {
+    display: inline;
+    position: relative;
+    bottom: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  .NewPost .checkbox span {
+    font-size: 2rem;
+  }
+
+  .NewPost input[type='text'] {
+    min-height: 2rem;
+  }
+
+  .NewPost input[type='text'],
+  .NewPost textarea {
+    display: block;
+  }
+
+  .Preview input {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .Preview input:hover,
+  .Preview input:focus {
+    color: #ddd;
+    background: #333;
+  }
 }

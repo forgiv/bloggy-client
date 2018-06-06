@@ -58,7 +58,7 @@ class NewPost extends React.Component {
     if (this.props.post.postSuccess) return <Redirect to="/dashboard" />
     if (this.state.preview && !this.props.user.loading) {
       return (
-        <div className="NewPost Preview">
+        <div className="Preview">
           <input
             type="button"
             value="close preview"
@@ -102,7 +102,7 @@ class NewPost extends React.Component {
           disabled={this.state.autoSlug}
         />
         <div className="checkbox">
-          Auto Slug<br />
+          <label>Auto Slug</label>
           {this.state.autoSlug ? (
             <FontAwesome
               name="fas fa-check-square"
