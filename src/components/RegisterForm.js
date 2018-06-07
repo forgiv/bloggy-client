@@ -7,7 +7,7 @@ import { reduxForm, Field, SubmissionError, focus } from 'redux-form'
 import Input from './Input'
 import { required, nonEmpty } from '../validators'
 
-class RegisterForm extends React.Component {
+export class RegisterForm extends React.Component {
   submitForm = values => {
     if (values.password === values.confirm) {
       return fetch(`${apiURL}/users`, {

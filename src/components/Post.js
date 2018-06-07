@@ -9,7 +9,7 @@ import Comment from './Comment'
 import NewComment from './NewComment'
 import * as FontAwesome from 'react-fontawesome'
 
-class Post extends React.Component {
+export class Post extends React.Component {
   componentWillMount() {
     const { username, slug } = this.props.match.params
     this.props.dispatch(getPost(username, slug))

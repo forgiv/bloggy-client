@@ -3,7 +3,7 @@ import { clearStore } from '../actions/root'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-class Logout extends React.Component {
+export class Logout extends React.Component {
   componentWillMount() {
     localStorage.removeItem('authToken')
     this.props.dispatch(clearStore())

@@ -5,7 +5,7 @@ import { getAuthToken } from '../actions/auth'
 import { Redirect } from 'react-router-dom'
 import { getUserData } from '../actions/user'
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   componentWillMount() {
     if (this.props.authToken) {
       if (!localStorage.getItem('authToken')) {

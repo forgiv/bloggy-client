@@ -4,7 +4,7 @@ import connect from 'react-redux/lib/connect/connect'
 import { getComments } from '../actions/comment'
 import './styles/NewComment.css'
 
-class NewComment extends React.Component {
+export class NewComment extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

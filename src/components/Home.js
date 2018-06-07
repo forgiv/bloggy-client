@@ -3,7 +3,7 @@ import { withRouter, Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './styles/Home.css'
 
-const Home = props => {
+export const Home = props => {
   if (props.authToken) return <Redirect to="/dashboard" />
   return (
     <div className="Home">

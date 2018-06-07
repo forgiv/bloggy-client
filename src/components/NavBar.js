@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './styles/NavBar.css'
 import * as FontAwesome from 'react-fontawesome'
 
-const NavBar = props => {
+export const NavBar = props => {
   if (props.user) {
     return (
       <nav className="NavBar">

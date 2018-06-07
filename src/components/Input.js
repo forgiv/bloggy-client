@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Input extends React.Component {
+export class Input extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.meta.active && this.props.meta.active) {
       this.input.focus()

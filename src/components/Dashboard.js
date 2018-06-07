@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Redirect from 'react-router-dom/Redirect'
 import { postClear } from '../actions/post'
 
-class Dashboard extends React.Component {
+export class Dashboard extends React.Component {
   componentWillMount() {
     this.props.dispatch(postClear())
   }

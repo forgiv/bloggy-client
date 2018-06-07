@@ -6,7 +6,7 @@ import { newPost } from '../actions/post'
 import * as marked from 'marked'
 import * as FontAwesome from 'react-fontawesome'
 
-class NewPost extends React.Component {
+export class NewPost extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

@@ -13,7 +13,7 @@ import { getUserData } from '../actions/user'
 import NavBar from './NavBar'
 import './styles/App.css'
 
-class App extends React.Component {
+export class App extends React.Component {
   componentWillMount() {
     if (this.props.authToken)
       this.props.dispatch(getUserData(this.props.authToken))

@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import './styles/Comment.css'
 
-const Comment = props => {
+export const Comment = props => {
   return (
     <article className="Comment">
       <header>

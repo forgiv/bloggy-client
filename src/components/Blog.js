@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import './styles/Blog.css'
 import * as removeMarkdown from 'remove-markdown'
 
-class Blog extends React.Component {
+export class Blog extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
