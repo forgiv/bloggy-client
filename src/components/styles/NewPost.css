@@ -61,6 +61,16 @@
   min-height: 3rem;
 }
 
+.Preview .title {
+  font-size: 2rem;
+}
+
+.Preview .sub-title {
+  font-size: 1.25rem;
+  margin-top: -2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 @media (min-width: 1280px) {
   .NewPost {
     max-width: 900px;
@@ -104,5 +114,31 @@
   .Preview input:focus {
     color: #ddd;
     background: #333;
+  }
+
+  .Preview header {
+    position: relative;
+  }
+
+  .Preview .title {
+    margin-right: 1rem;
+    font-size: 3rem;
+  }
+
+  .Preview .sub-title {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.5rem;
+  }
+
+  .Preview .title,
+  .Preview .sub-title {
+    display: inline-block;
+    border: none;
+    margin-bottom: 0;
+  }
+
+  .Preview header {
+    border-bottom: 1px solid #333;
   }
 }

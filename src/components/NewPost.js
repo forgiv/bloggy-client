@@ -66,8 +66,8 @@ export class NewPost extends React.Component {
           />
           <article className="Preview">
             <header>
-              <h1>{this.state.title}</h1>
-              <h3>{this.props.user.user.username}</h3>
+              <h1 className="title">{this.state.title}</h1>
+              <h2 className="sub-title">{this.props.user.user.username}</h2>
             </header>
             <div
               dangerouslySetInnerHTML={{ __html: marked(this.state.content) }}
