@@ -27,7 +27,11 @@ export class App extends React.Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={RegisterForm} />
-          <Route exact path="/blog/:username" component={Blog} />
+          <Route
+            exact
+            path="/blog/:username"
+            render={props => <Blog key={Date.now()} {...props} />}
+          />
           <Route exact path="/blog/:username/:slug" component={Post} />
           <Route
             exact

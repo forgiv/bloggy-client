@@ -63,7 +63,8 @@ export class Blog extends React.Component {
 const mapStateToProps = state => ({
   posts: state.post.posts,
   error: state.post.error,
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  user: state.user.user
 })
 
 export default connect(mapStateToProps)(Blog)

@@ -45,7 +45,9 @@ export class LoginForm extends React.Component {
         />
         <input type="submit" value="Login" onClick={e => e.target.blur()} />
         <div className="message error">
-          {this.props.error ? this.props.error.message : ''}
+          {this.props.error && localStorage.getItem('authToken')
+            ? 'User session expired'
+            : ''}
         </div>
       </form>
     )
