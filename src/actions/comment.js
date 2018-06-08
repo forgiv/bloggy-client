@@ -19,7 +19,7 @@ export const getCommentsError = error => ({
 
 export const getComments = (username, slug) => dispatch => {
   dispatch(getCommentsRequest())
-  fetch(`${apiURL}/comments/${username}/${slug}`)
+  return fetch(`${apiURL}/comments/${username}/${slug}`)
     .then(res => {
       if (!res.ok) {
         return Promise.reject({ code: res.status, message: res.statusText })

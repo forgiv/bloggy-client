@@ -57,7 +57,7 @@ export const postClear = () => ({
 
 export const getPosts = username => dispatch => {
   dispatch(getPostsRequest())
-  fetch(`${apiURL}/users/${username}/posts`)
+  return fetch(`${apiURL}/users/${username}/posts`)
     .then(res => res.json())
     .then(data => {
       if (!data.message) {
@@ -71,7 +71,7 @@ export const getPosts = username => dispatch => {
 
 export const newPost = (postData, authToken) => dispatch => {
   dispatch(newPostRequest())
-  fetch(`${apiURL}/posts`, {
+  return fetch(`${apiURL}/posts`, {
     method: 'POST',
     body: JSON.stringify(postData),
     headers: {
@@ -89,7 +89,7 @@ export const newPost = (postData, authToken) => dispatch => {
 
 export const getPost = (username, slug) => dispatch => {
   dispatch(getPostRequest())
-  fetch(`${apiURL}/users/${username}/${slug}`)
+  return fetch(`${apiURL}/users/${username}/${slug}`)
     .then(res => {
       if (res.status === 200) {
         return res.json()

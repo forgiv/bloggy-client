@@ -28,7 +28,7 @@ export const authTokenError = error => ({
 export const getAuthToken = (username, password) => dispatch => {
   dispatch(authTokenRequest())
   let authToken
-  fetch(`${apiURL}/login`, {
+  return fetch(`${apiURL}/login`, {
     method: 'POST',
     body: JSON.stringify({ username, password }),
     headers: {
@@ -51,7 +51,7 @@ export const getAuthToken = (username, password) => dispatch => {
 export const refreshAuthToken = authToken => dispatch => {
   dispatch(authTokenRequest())
   let newToken
-  fetch(`${apiURL}/refresh`, {
+  return fetch(`${apiURL}/refresh`, {
     method: 'POST',
     headers: {
       authorization: `Bearer ${authToken}`

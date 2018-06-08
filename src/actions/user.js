@@ -19,7 +19,7 @@ export const getUserDataError = error => ({
 
 export const getUserData = authToken => dispatch => {
   dispatch(getUserDataRequest())
-  fetch(`${apiURL}/users`, {
+  return fetch(`${apiURL}/users`, {
     headers: {
       authorization: `Bearer ${authToken}`
     }
