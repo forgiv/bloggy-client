@@ -82,6 +82,13 @@ export class NewPost extends React.Component {
     return (
       <form onSubmit={e => this.submitForm(e)} className="NewPost">
         <h1>New Post</h1>
+        <div className="message error-message">
+          {this.props.post.error
+            ? `${this.props.post.error.location}: ${
+                this.props.post.error.message
+              }`
+            : ''}
+        </div>
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -135,7 +142,6 @@ export class NewPost extends React.Component {
           value="Cancel"
           onClick={() => this.props.history.push('/dashboard')}
         />
-        <div>{this.state.error}</div>
       </form>
     )
   }

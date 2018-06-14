@@ -52,6 +52,14 @@
   background: #333;
 }
 
+.NewPost .message {
+  font-size: 1rem;
+}
+
+.NewPost .error-message {
+  color: red;
+}
+
 .Preview {
   text-align: left;
   font-size: 1.5rem;
