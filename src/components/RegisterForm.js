@@ -41,6 +41,11 @@ export class RegisterForm extends React.Component {
           if (reason === 'ValidationError') {
             return Promise.reject(new SubmissionError({ [location]: message }))
           }
+          if (err.status === 400) {
+            return Promise.reject(
+              new SubmissionError({ _error: 'Username already exists' })
+            )
+          }
           return Promise.reject(
             new SubmissionError({ _error: 'Error registering user' })
           )
