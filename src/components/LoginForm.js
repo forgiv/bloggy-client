@@ -24,7 +24,7 @@ export class LoginForm extends React.Component {
   render() {
     if (this.props.authToken && this.props.user) {
       localStorage.setItem('authToken', this.props.authToken)
-      return <Redirect to="/dashboard" />
+      return <Redirect to="/bloggy/dashboard" />
     }
     return (
       <form onSubmit={e => this.submitForm(e)} className="LoginForm">
