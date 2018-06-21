@@ -7,7 +7,7 @@ export const Comment = props => {
     <article className="Comment">
       <header>
         <strong>
-          <Link to={`/blog/${props.username}`}>{props.username}</Link>
+          <Link to={`/bloggy/blog/${props.username}`}>{props.username}</Link>
         </strong>
       </header>
       {props.content}

@@ -57,7 +57,7 @@ export class RegisterForm extends React.Component {
 
   render() {
     if (this.props.submitSucceeded) {
-      return <Redirect to="/login" />
+      return <Redirect to="/bloggy/login" />
     }
 
     let errorMessage

@@ -1,9 +1,10 @@
 {
   "name": "bloggy-client",
-  "version": "0.9.3",
+  "version": "0.9.6",
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "marked": "^0.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -16,12 +17,14 @@
     "redux-thunk": "^2.3.0",
     "remove-markdown": "^0.3.0"
   },
+  "homepage": "https://forgiv.github.io/bloggy",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "netlify deploy -p ./build"
+    "predeploy": "CREATE_REACT_APP_BASE_URL=https://hiramacruz.com/api yarn build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",

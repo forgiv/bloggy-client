@@ -10,22 +10,22 @@ export const NavBar = props => {
       <nav className="NavBar">
         <ul>
           <li>
-            <Link to="/logout" aria-label="Logout">
+            <Link to="/bloggy/logout" aria-label="Logout">
               <FontAwesome name="fas fa-sign-out-alt" />
             </Link>
           </li>
           <li>
-            <Link to="/dashboard" aria-label="Dashboard">
+            <Link to="/bloggy/dashboard" aria-label="Dashboard">
               <FontAwesome name="fas fa-tachometer-alt" />
             </Link>
           </li>
           <li>
-            <Link to={`/blog/${props.user.username}`} aria-label="Blog">
+            <Link to={`/bloggy/blog/${props.user.username}`} aria-label="Blog">
               <FontAwesome name="fas fa-align-justify" />
             </Link>
           </li>
           <li>
-            <Link to="/dashboard/new" aria-label="New Post">
+            <Link to="/bloggy/dashboard/new" aria-label="New Post">
               <FontAwesome name="fas fa-edit" />
             </Link>
           </li>
@@ -37,12 +37,16 @@ export const NavBar = props => {
       <nav className="NavBar">
         <ul>
           <li>
-            <Link to="/login" aria-label="Login" onClick={e => e.target.blur()}>
+            <Link
+              to="/bloggy/login"
+              aria-label="Login"
+              onClick={e => e.target.blur()}
+            >
               <FontAwesome name="fas fa-sign-in-alt" />
             </Link>
           </li>
           <li>
-            <Link to="/register" aria-label="Register">
+            <Link to="/bloggy/register" aria-label="Register">
               <FontAwesome name="fas fa-user-plus" />
             </Link>
           </li>

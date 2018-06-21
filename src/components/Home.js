@@ -4,13 +4,14 @@ import { connect } from 'react-redux'
 import './styles/Home.css'
 
 export const Home = props => {
-  if (props.authToken) return <Redirect to="/dashboard" />
+  if (props.authToken) return <Redirect to="/bloggy/dashboard" />
   return (
     <div className="Home">
       <h1>Bloggy</h1>
       <h2>How to get started:</h2>
       <p>
-        Visit the <Link to="/register">registration page</Link> to create your<br />
+        Visit the <Link to="/bloggy/register">registration page</Link> to create
+        your<br />
         account. <br />
         <br />
         Sign up with a <strong>username</strong>, <strong>password</strong>, and

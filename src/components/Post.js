@@ -23,7 +23,7 @@ export class Post extends React.Component {
           <button
             onClick={() =>
               this.props.history.push(
-                `/blog/${this.props.match.params.username}`
+                `/bloggy/blog/${this.props.match.params.username}`
               )
             }
             className="btn-return"
