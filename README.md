@@ -10,7 +10,7 @@ This is the client-side package of Bloggy.
 
 ## Live Version
 
-[Bloggy](https://ecstatic-mccarthy-2190d4.netlify.com/)
+[Bloggy](https://forgiv.github.io/bloggy/)
 
 ## Screenshots
 
