@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^1.2.0",
+    "jwt-decode": "^2.2.0",
     "marked": "^0.4.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
