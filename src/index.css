@@ -1,45 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
-a {
-  color: #0055ff;
-  text-decoration: none;
-}
-
 body {
-  font-family: sans-serif;
   margin: 0;
-  padding: 0 0 100px 0;
-  color: #333;
-}
-
-input,
-label,
-button,
-a {
-  cursor: pointer;
-}
-
-input,
-textarea,
-button {
-  border-radius: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: white;
-}
-
-.message {
-  margin: 0.5rem 0;
-  font-size: 1.25rem;
-}
-
-.error {
-  color: red;
-}
-
-.success {
-  color: greenyellow;
+  padding: 0;
+  font-family: sans-serif;
 }
