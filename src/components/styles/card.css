@@ -1,0 +1,33 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #34495e; /* wet asphalt */
+
+  padding: 10px;
+  margin: 10px;
+
+  max-width: 100%;
+  width: 400px;
+
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+/* @keyframes on-hover {
+  from { box-shadow: none; }
+  to { box-shadow: 0 0 10px 0px #fdcb6e; }
+}
+
+.Card:hover {
+  animation-name: on-hover;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+} */
+
+@media screen and (max-width: 768px) {
+  .Card {
+    width: 100%;
+  }
+}

@@ -8,6 +8,9 @@ import Dashboard from './dashboard'
 import RegistrationPage from './registration-page'
 import { refreshAuthToken } from '../actions/auth'
 
+import './styles/app.css'
+import './styles/home.css'
+
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
@@ -40,7 +43,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="App">
         <HeaderBar />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />

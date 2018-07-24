@@ -1,0 +1,11 @@
+.HeaderBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-grow: 1;
+  
+  max-width: 100%;
+  width: 100%;
+}
