@@ -10,7 +10,7 @@ This is the client-side package of Bloggy.
 
 ## Live Version
 
-[Bloggy](https://forgiv.github.io/bloggy/)
+[Bloggy](https://bloggy-client.herokuapp.com)
 
 ## Screenshots
 
