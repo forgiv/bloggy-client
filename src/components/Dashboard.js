@@ -18,7 +18,7 @@ export class Dashboard extends React.Component {
         </div>
       )
     }
-    return <Redirect to="/bloggy/login" />
+    return <Redirect to="/login" />
   }
 }
 

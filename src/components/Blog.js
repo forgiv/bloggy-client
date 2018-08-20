@@ -43,7 +43,7 @@ export class Blog extends React.Component {
             <article key={post.title}>
               <header>
                 <Link
-                  to={`/bloggy/blog/${this.props.match.params.username}/${
+                  to={`/blog/${this.props.match.params.username}/${
                     post.slug
                   }`}
                 >

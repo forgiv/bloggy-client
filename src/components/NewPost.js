@@ -55,7 +55,7 @@ export class NewPost extends React.Component {
   }
 
   render() {
-    if (this.props.post.postSuccess) return <Redirect to="/bloggy/dashboard" />
+    if (this.props.post.postSuccess) return <Redirect to="/dashboard" />
     if (this.state.preview && !this.props.user.loading) {
       return (
         <div className="Preview">
@@ -140,7 +140,7 @@ export class NewPost extends React.Component {
         <input
           type="button"
           value="Cancel"
-          onClick={() => this.props.history.push('/bloggy/dashboard')}
+          onClick={() => this.props.history.push('/dashboard')}
         />
       </form>
     )

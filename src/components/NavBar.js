@@ -10,22 +10,22 @@ export const NavBar = props => {
       <nav className="NavBar">
         <ul>
           <li>
-            <Link to="/bloggy/logout" aria-label="Logout">
+            <Link to="/logout" aria-label="Logout">
               <FontAwesome name="fas fa-sign-out-alt" />
             </Link>
           </li>
           <li>
-            <Link to="/bloggy/dashboard" aria-label="Dashboard">
+            <Link to="/dashboard" aria-label="Dashboard">
               <FontAwesome name="fas fa-tachometer-alt" />
             </Link>
           </li>
           <li>
-            <Link to={`/bloggy/blog/${props.user.username}`} aria-label="Blog">
+            <Link to={`/blog/${props.user.username}`} aria-label="Blog">
               <FontAwesome name="fas fa-align-justify" />
             </Link>
           </li>
           <li>
-            <Link to="/bloggy/dashboard/new" aria-label="New Post">
+            <Link to="/dashboard/new" aria-label="New Post">
               <FontAwesome name="fas fa-edit" />
             </Link>
           </li>
@@ -38,7 +38,7 @@ export const NavBar = props => {
         <ul>
           <li>
             <Link
-              to="/bloggy/login"
+              to="/login"
               aria-label="Login"
               onClick={e => e.target.blur()}
             >
@@ -46,7 +46,7 @@ export const NavBar = props => {
             </Link>
           </li>
           <li>
-            <Link to="/bloggy/register" aria-label="Register">
+            <Link to="/register" aria-label="Register">
               <FontAwesome name="fas fa-user-plus" />
             </Link>
           </li>

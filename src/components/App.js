@@ -24,38 +24,38 @@ export class App extends React.Component {
       <Router>
         <main className="App">
           <NavBar />
-          <Route exact path="/bloggy/" component={Home} />
-          <Route exact path="/bloggy/login" component={LoginForm} />
-          <Route exact path="/bloggy/register" component={RegisterForm} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/register" component={RegisterForm} />
           <Route
             exact
-            path="/bloggy/blog/:username"
+            path="/blog/:username"
             render={props => <Blog key={Date.now()} {...props} />}
           />
-          <Route exact path="/bloggy/blog/:username/:slug" component={Post} />
+          <Route exact path="/blog/:username/:slug" component={Post} />
           <Route
             exact
-            path="/bloggy/dashboard"
+            path="/dashboard"
             render={() =>
               this.props.authToken ? (
                 <Dashboard />
               ) : (
-                <Redirect to="/bloggy/login" />
+                <Redirect to="/login" />
               )
             }
           />
           <Route
             exact
-            path="/bloggy/dashboard/new"
+            path="/dashboard/new"
             render={() =>
               this.props.authToken ? (
                 <NewPost />
               ) : (
-                <Redirect to="/bloggy/login" />
+                <Redirect to="/login" />
               )
             }
           />
-          <Route exact path="/bloggy/logout" component={Logout} />
+          <Route exact path="/logout" component={Logout} />
         </main>
       </Router>
     )
